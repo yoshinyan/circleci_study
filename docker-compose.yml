@@ -1,0 +1,23 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:8.0.18
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - "./mysql-data:/var/lib/mysql"
+    ports:
+      - "3306:3306"
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ".:/app"
+    ports:
+      - "3000:3000"
+    tty: true
+    depends_on:
+      - mysql
+    working_dir: "/app"
