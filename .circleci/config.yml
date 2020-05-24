@@ -4,8 +4,8 @@ jobs:
     docker:
       - image: circleci/ruby:2.6.3-node-browsers
         environment:
-          - MYSQL_HOST: 127.0.0.1
-          - MYSQL_DATABASE: rails
+          - MYSQL_HOST: mysql
+          - MYSQL_DATABASE: app_development
           - MYSQL_USERNAME: root
           - MYSQL_PASSWORD: root
 
@@ -16,7 +16,7 @@ jobs:
       - image: circleci/mysql:5.7-ram
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: true
-          - MYSQL_DATABASE: rails
+          - MYSQL_DATABASE: app_development
           - MYSQL_ROOT_HOST: '%'
 
     working_directory: ~/repo
