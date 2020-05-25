@@ -25,6 +25,7 @@ jobs:
       - checkout
 
       # Database setup
+      - run: bundle install
       - run: bin/rails db:create
       - run: bin/rails db:schema:load
 
