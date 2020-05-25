@@ -18,6 +18,8 @@ jobs:
           - MYSQL_ALLOW_EMPTY_PASSWORD: true
           - MYSQL_DATABASE: app_development
           - MYSQL_ROOT_HOST: '%'
+        command: |
+          mysqld --default-authentication-plugin=mysql_native_password
 
     working_directory: ~/repo
 
