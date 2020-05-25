@@ -25,8 +25,8 @@ jobs:
       - checkout
 
       # Database setup
-      - run: rails db:create
-      - run: rails db:schema:load
+      - run: bin/rails db:create
+      - run: bin/rails db:schema:load
 
       # run tests!
-      - run: rails test
+      - run: bin/rails test
